@@ -44,7 +44,7 @@ Highcharts.SVGRenderer.prototype.symbols.download = (x, y, w, h) => {
 };
 
 function ColumnChart({
-  data, data_decimals, export_title_margin, idx, note, source, subtitle, title, xlabel, ymax, ymin
+  data, data_decimals, export_title_margin, idx, note, source, subtitle, title, ymax, ymin
 }) {
   const chartRef = useRef();
 
@@ -222,7 +222,7 @@ function ColumnChart({
           const rows = [];
           rows.push(values.map(point => `<div style="color: ${point[2]}"><span class="tooltip_label">${(point[0]) ? `${point[0]}: ` : ''}</span><span class="tooltip_value">${roundNr(point[1], data_decimals)}</span></div>`).join(''));
           // eslint-disable-next-line react/no-this-in-sfc
-          return `<div class="tooltip_container"><h3 class="tooltip_header">${xlabel} ${this.x}</h3>${rows}</div>`;
+          return `<div class="tooltip_container"><h3 class="tooltip_header">Year ${(new Date(this.x)).getFullYear()}</h3>${rows}</div>`;
         },
         shadow: false,
         shared: true,
@@ -317,7 +317,7 @@ function ColumnChart({
       }
     });
     chartRef.current.querySelector(`#chartIdx${idx}`).style.opacity = 1;
-  }, [idx, data, data_decimals, export_title_margin, note, source, subtitle, title, xlabel, ymax, ymin]);
+  }, [idx, data, data_decimals, export_title_margin, note, source, subtitle, title, ymax, ymin]);
 
   useEffect(() => {
     if (isVisible === true) {
@@ -346,7 +346,6 @@ ColumnChart.propTypes = {
   source: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   title: PropTypes.string.isRequired,
-  xlabel: PropTypes.string,
   ymax: PropTypes.number,
   ymin: PropTypes.number
 };
@@ -355,7 +354,6 @@ ColumnChart.defaultProps = {
   export_title_margin: 0,
   note: false,
   subtitle: false,
-  xlabel: '',
   ymax: undefined,
   ymin: undefined
 };
