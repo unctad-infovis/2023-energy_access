@@ -48,9 +48,9 @@ function Figure1() {
         data_decimals={0}
         note=""
         source="UNCTAD secretariat calculations based on data from the World Bank"
-        subtitle="Share of the population with access to electricity in Sub-Saharan Africa, 1996 to 2020"
+        subtitle="Share of the population with access to electricity in sub-Saharan Africa, 1996 to 2020"
         suffix=""
-        title="Access to electricity in Sub-Saharan is growing slowly"
+        title="Access to electricity in sub-Saharan Africa is growing slowly"
         ylabel=""
         ymax={100}
       />
