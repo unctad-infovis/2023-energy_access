@@ -48,9 +48,9 @@ function Figure1() {
         data_decimals={0}
         note=""
         source="UNCTAD secretariat calculations based on data from the World Bank"
-        subtitle="Share of the population with access to clean cooking fuels in sub-Saharan Africa and the world, 2000 to 2020"
+        subtitle="Share of the population with access to clean fuels and technologies for cooking in sub-Saharan Africa and the world, 2000 to 2020"
         suffix=""
-        title="Most of the people in sub-Saharan Africa lack access to clean cooking fuels"
+        title="Most of the people in sub-Saharan Africa lack access to clean fuels and technologies for cooking"
         ylabel=""
       />
       )}
