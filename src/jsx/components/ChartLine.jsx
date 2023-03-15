@@ -375,7 +375,7 @@ function LineChart({
   }, [createChart, isVisible]);
 
   return (
-    <div className="chart_container" style={{ marginBottom: '-20px' }}>
+    <div className="chart_container" style={{ minHeight: chartHeight }}>
       <div ref={chartRef}>
         {(isVisible) && (<div className="chart" id={`chartIdx${idx}`} />)}
       </div>
