@@ -43,7 +43,7 @@ Highcharts.SVGRenderer.prototype.symbols.download = (x, y, w, h) => {
 };
 
 function LineChart({
-  allow_decimals, data, idx, line_width, note, show_first_label, source, subtitle, suffix, title
+  allow_decimals, data, data_decimals, idx, line_width, note, show_first_label, source, subtitle, suffix, title
 }) {
   const chartRef = useRef();
   const isVisible = useIsVisible(chartRef, { once: true });
@@ -285,7 +285,7 @@ function LineChart({
           // eslint-disable-next-line react/no-this-in-sfc
           const values = this.points.filter(point => point.series.name !== '').map(point => [point.series.name.split(' (')[0], point.y, point.color]);
           const rows = [];
-          rows.push(values.map(point => `<div><span class="tooltip_label" style="color: ${point[2]}">${(point[0]) ? `${point[0]}: ` : ''}</span><span class="tooltip_value">${roundNr(point[1], 0).toLocaleString('en-US')}${suffix}</span></div>`).join(''));
+          rows.push(values.map(point => `<div><span class="tooltip_label" style="color: ${point[2]}">${(point[0]) ? `${point[0]}: ` : ''}</span><span class="tooltip_value">${roundNr(point[1], data_decimals).toLocaleString('en-US')}${suffix}</span></div>`).join(''));
           // eslint-disable-next-line react/no-this-in-sfc
           return `<div class="tooltip_container"><h3 class="tooltip_header">Year ${(new Date(this.x)).getFullYear()}</h3>${rows}</div>`;
         },
@@ -364,7 +364,7 @@ function LineChart({
       }
     });
     chartRef.current.querySelector(`#chartIdx${idx}`).style.opacity = 1;
-  }, [allow_decimals, data, idx, line_width, note, show_first_label, source, subtitle, suffix, title]);
+  }, [allow_decimals, data, data_decimals, idx, line_width, note, show_first_label, source, subtitle, suffix, title]);
 
   useEffect(() => {
     if (isVisible === true) {
@@ -387,6 +387,7 @@ function LineChart({
 LineChart.propTypes = {
   allow_decimals: PropTypes.bool,
   data: PropTypes.instanceOf(Array).isRequired,
+  data_decimals: PropTypes.number,
   idx: PropTypes.string.isRequired,
   line_width: PropTypes.number,
   note: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
@@ -399,6 +400,7 @@ LineChart.propTypes = {
 
 LineChart.defaultProps = {
   allow_decimals: true,
+  data_decimals: 0,
   line_width: 5,
   note: false,
   show_first_label: true,

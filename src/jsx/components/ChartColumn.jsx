@@ -129,7 +129,7 @@ function ColumnChart({
           title: {
             x: 100,
             margin: export_title_margin,
-            widthAdjust: -144
+            widthAdjust: -210
           }
         }
       },
@@ -185,7 +185,7 @@ function ColumnChart({
             enabled: true,
             formatter() {
               // eslint-disable-next-line react/no-this-in-sfc
-              return `${roundNr(this.y, data_decimals)}`;
+              return `${roundNr(this.y, 0)}`;
             },
             overflow: 'none',
             style: {
@@ -351,7 +351,7 @@ ColumnChart.propTypes = {
 };
 
 ColumnChart.defaultProps = {
-  export_title_margin: 0,
+  export_title_margin: 10,
   note: false,
   subtitle: false,
   ymax: undefined,

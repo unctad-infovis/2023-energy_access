@@ -45,7 +45,7 @@ function Figure1() {
       <ChartColumn
         idx="2"
         data={dataFigure}
-        data_decimals={0}
+        data_decimals={1}
         note=""
         source="UNCTAD secretariat calculations based on data from the World Bank"
         subtitle="Share of the population with access to electricity in sub-Saharan Africa, 1996 to 2020"

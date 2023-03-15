@@ -45,12 +45,12 @@ function Figure1() {
       <ChartLine
         idx="1"
         data={dataFigure}
-        data_decimals={0}
+        data_decimals={1}
         note=""
         source="UNCTAD secretariat calculations based on data from the World Bank"
         subtitle="Share of the population with access to clean fuels and technologies for cooking in sub-Saharan Africa and the world, 2000 to 2020"
         suffix=""
-        title="Most people in sub-Saharan Africa lack access to clean fuels and technologies for cooking"
+        title="Most people in sub-Saharan Africa lack clean fuels and technologies for cooking"
         ylabel=""
       />
       )}
