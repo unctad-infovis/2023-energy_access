@@ -44,7 +44,7 @@ Highcharts.SVGRenderer.prototype.symbols.download = (x, y, w, h) => {
 };
 
 function ColumnChart({
-  data, data_decimals, export_title_margin, idx, note, source, subtitle, title, ymax, ymin
+  data, data_decimals, export_title_margin = 10, idx, note = false, source, subtitle = false, title, ymax = undefined, ymin = undefined
 }) {
   const chartRef = useRef();
 
@@ -348,14 +348,6 @@ ColumnChart.propTypes = {
   title: PropTypes.string.isRequired,
   ymax: PropTypes.number,
   ymin: PropTypes.number
-};
-
-ColumnChart.defaultProps = {
-  export_title_margin: 10,
-  note: false,
-  subtitle: false,
-  ymax: undefined,
-  ymin: undefined
 };
 
 export default ColumnChart;
